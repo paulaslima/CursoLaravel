@@ -3,31 +3,73 @@
 @push('css')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 @endpush
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 @section('conteudo')
-<div class="container">
-    <form action='/action_page.php'>
-        <div class="form-group">
-            <label>
-                Nome:
-            </label></br>
-            <input class="form-control" type="text"> </br>
-            <label>
-                Endereço:
-            </label></br>
-            <input class="form-control" type="text"> </br>
-            <div class="row">
-            <div class="col-md-6">
-                <label>
-                    CPF:
-                </label></br>
-                <input id="cpf" name="cpf" type="text" class='cpf-mask form-control'> <br>
-                <button type="submit" class="btn btn-warning">Enviar</button>
-                </div>
-            </div>
-        </div>
-    </form>
-    </div>
+
+<a href="" class="btn btn-secondary">Adicionar</a> <br><br>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>CPF</th>
+    <th>NOME</th>
+    <th>EMAIL</th>
+    <th>AÇÕES</th>
+  </tr>
+    @foreach($clients as $client)
+  <tr>
+    <td>{{$client->id}}</td>
+    <td>{{$client->cpf}}</td>
+    <td>{{$client->name}}</td>
+    <td>{{$client->email}}</td>
+    <td><a href="" class="btn btn-success btn-sm">Adicionar</a> 
+        <a href="" class="btn btn-danger btn-sm">Excluir</a> 
+  </tr>
+  @endforeach
+
+
+
+
+ <!-- <tr>
+    <td>12345678903</td>
+    <td>Francisco Chang</td>
+    <td>franciscochang@email.com</td>
+    <td><a href="" class="btn btn-secondary btn-sm">Adicionar</a> 
+        <a href="" class="btn btn-secondary btn-sm">Excluir</a></td>
+  </tr>
+  <tr>
+    <td>12345678904</td>
+    <td>Roland Mendel</td>
+    <td>rolandmandel@email.com</td>
+    <td><a href="" class="btn btn-secondary btn-sm">Adicionar</a> 
+        <a href="" class="btn btn-secondary btn-sm">Excluir</a></td>
+  </tr>
+  <tr>
+    <td>12345678904</td>
+    <td>Roland Mendel</td>
+    <td>rolandmandel@email.com</td>
+    <td><a href="" class="btn btn-secondary btn-sm">Adicionar</a> 
+        <a href="" class="btn btn-secondary btn-sm">Excluir</a></td>
+  </tr> -->
+ 
+
+</table>
     @endsection
     @push('scripts')
     
