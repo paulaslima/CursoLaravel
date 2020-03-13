@@ -5,31 +5,50 @@
 @endpush
 
 @section('conteudo')
+
+@if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>   
+@endif             
 <div class="container">
-    <form action='/action_page.php'>
+    <form method="POST" action="{{route('client.store')}}" 
+            class="form-horizontal form-validate">
+            {{csrf_field()}}
+                            
         <div class="form-group">
 
             <label>
                 CPF:
             </label></br>
-            <input id="cpf" name="cpf" type="text" class='cpf-mask form-control'> <br>
+            <input id="cpf" name="cpf" type="text" class='cpf-mask form-control' required value='{{old("cpf")}}'> <br>
 
             <label>
                 Nome:
             </label></br>
-            <input class="form-control" type="text"> </br>
+            <input id="name" name="name" class="form-control" type="text" required value='{{old("name")}}'> </br>
 
             <label>
                 E-mail:
             </label></br>
-            <input class="form-control" type="text"> </br>
+            <input id="email" name="email" class="form-control" type="text"value='{{old("email")}}'> </br>
+
+      <!--  <label>
+                Endereço:
+            </label></br>
+            <input id="endereco" name="endereco"class="form-control" type="text"> </br> -->
 
             <label>
-                E-mail:
-            </label></br>
-            <input class="form-control" type="text"> </br>
+                Ativo?
+            </label>
+            <input id="ativo" name="ativo" type='checkbox' >
+            <br> <br>
 
-            <button type="submit" class="btn btn-warning">Enviar</button>
+            <input type="submit" class="btn btn-success btn" value="Enviar"> 
 
                
         </div>

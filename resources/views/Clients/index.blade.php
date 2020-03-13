@@ -20,9 +20,14 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-@section('conteudo')
 
-<a href="" class="btn btn-secondary">Adicionar</a> <br><br>
+@if(Session::has('success'))
+    toastr["success"]("<b>SUCESSO: </b> </br>
+    {{Session::get('success') }} ");
+@endif    
+
+@section('conteudo')
+<a href="{{route('client.create')}}" class="btn btn-secondary">Adicionar</a> <br><br>
 
 <table>
   <tr>
@@ -42,32 +47,6 @@ tr:nth-child(even) {
         <a href="" class="btn btn-danger btn-sm">Excluir</a> 
   </tr>
   @endforeach
-
-
-
-
- <!-- <tr>
-    <td>12345678903</td>
-    <td>Francisco Chang</td>
-    <td>franciscochang@email.com</td>
-    <td><a href="" class="btn btn-secondary btn-sm">Adicionar</a> 
-        <a href="" class="btn btn-secondary btn-sm">Excluir</a></td>
-  </tr>
-  <tr>
-    <td>12345678904</td>
-    <td>Roland Mendel</td>
-    <td>rolandmandel@email.com</td>
-    <td><a href="" class="btn btn-secondary btn-sm">Adicionar</a> 
-        <a href="" class="btn btn-secondary btn-sm">Excluir</a></td>
-  </tr>
-  <tr>
-    <td>12345678904</td>
-    <td>Roland Mendel</td>
-    <td>rolandmandel@email.com</td>
-    <td><a href="" class="btn btn-secondary btn-sm">Adicionar</a> 
-        <a href="" class="btn btn-secondary btn-sm">Excluir</a></td>
-  </tr> -->
- 
 
 </table>
     @endsection
