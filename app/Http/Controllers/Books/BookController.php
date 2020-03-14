@@ -16,6 +16,18 @@ class BookController extends Controller
       return view ('Books/create');
     }
 
+    public function index() {
+      $bookModel = app(Book::class);
+      $books = $bookModel->all(); //traz todos os resultados *
+      //$clients = $clientModel->find(1); //traz pelo id
+      //$clients = $clientModel->where('cpf',12345678900)->get(); //traz resultado com condição
+
+
+      //dd($clients);
+      return view ('Books/index',compact('books'));
+
+    }
+
 
     public function store(Request $request){
       $data = $request->all();
