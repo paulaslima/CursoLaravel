@@ -37,10 +37,7 @@
             <input id="page_number" name="page_number" class="form-control" type="text"value='{{old("page_number")}}'> </br>
 
             
-      <!--  <label>
-                Endereço:
-            </label></br>
-            <input id="endereco" name="endereco"class="form-control" type="text"> </br> -->
+      
 
 
 

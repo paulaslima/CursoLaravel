@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Client;
+use App\Models\Book;
 
 
 class BookController extends Controller
@@ -19,14 +19,14 @@ class BookController extends Controller
 
     public function store(Request $request){
       $data = $request->all();
-      $clientModel = app(Client::class);
-      $client = $clientModel->create([
+      $bookModel = app(Book::class);
+      $book = $bookModel->create([
           'name'=>$data['name'],
           'writer'=>$data['writer'],
           'page_number'=>$data['page_number'],
       ]);
 
-      return redirect()->route('client.create');
+      return redirect()->route('book.create');
     }
 
 }
