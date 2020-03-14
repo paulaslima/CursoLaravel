@@ -7,8 +7,7 @@
 @section('conteudo')
 
 @if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
+    <div class="alert alert-danger">        <ul>
             @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
@@ -16,42 +15,34 @@
     </div>   
 @endif             
 <div class="container">
-    <form method="POST" action="{{route('client.store')}}" 
+    <form method="POST" action="{{route('book.store')}}" 
             class="form-horizontal form-validate">
             {{csrf_field()}}
                             
         <div class="form-group">
 
             <label>
-                CPF:
-            </label></br>
-            <input id="cpf" name="cpf" type="text" class='cpf-mask form-control' required value='{{old("cpf")}}'> <br>
-
-            <label>
                 Nome:
             </label></br>
-            <input id="name" name="name" class="form-control" type="text" required value='{{old("name")}}'> </br>
+            <input id="name" name="name" type="text" class='form-control' required value='{{old("name")}}'> <br>
 
             <label>
-                E-mail:
+                Escritor:
             </label></br>
-            <input id="email" name="email" class="form-control" type="text"value='{{old("email")}}'> </br>
+            <input id="writer" name="writer" class="form-control" type="text" required value='{{old("writer")}}'> </br>
 
             <label>
-                Endereço:
+                Número de Páginas:
             </label></br>
-            <input id="endereco" name="endereco" class="form-control" type="text"value='{{old("endereco")}}'> </br>
+            <input id="page_number" name="page_number" class="form-control" type="text"value='{{old("page_number")}}'> </br>
 
+            
       <!--  <label>
                 Endereço:
             </label></br>
             <input id="endereco" name="endereco"class="form-control" type="text"> </br> -->
 
-            <label>
-                Ativo?
-            </label>
-            <input id="ativo" name="ativo" type='checkbox' >
-            <br> <br>
+
 
             <input type="submit" class="btn btn-success btn" value="Enviar"> 
 

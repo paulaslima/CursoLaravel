@@ -16,31 +16,30 @@
     </div>   
 @endif             
 <div class="container">
-    <form method="POST" action="{{route('client.store')}}" 
+    <form method="POST" action="{{route('client.update',[$client->id])}}" 
             class="form-horizontal form-validate">
             {{csrf_field()}}
-                            
+             @method('PUT')               
         <div class="form-group">
 
             <label>
                 CPF:
             </label></br>
-            <input id="cpf" name="cpf" type="text" class='cpf-mask form-control' required value='{{old("cpf")}}'> <br>
+            <input id="cpf" name="cpf" type="text" class='cpf-mask form-control' required value='{{old("cpf",$client->cpf)}}'> <br>
 
             <label>
                 Nome:
             </label></br>
-            <input id="name" name="name" class="form-control" type="text" required value='{{old("name")}}'> </br>
+            <input id="name" name="name" class="form-control" type="text" required value='{{old("name",$client->name)}}'> </br>
 
             <label>
                 E-mail:
             </label></br>
-            <input id="email" name="email" class="form-control" type="text"value='{{old("email")}}'> </br>
-
+            <input id="email" name="email" class="form-control" type="text"value='{{old("email",$client->email)}}'> </br>
             <label>
                 Endereço:
             </label></br>
-            <input id="endereco" name="endereco" class="form-control" type="text"value='{{old("endereco")}}'> </br>
+            <input id="endereco" name="endereco" class="form-control" type="text"value='{{old("endereco",$client->endereco)}}'> </br>
 
       <!--  <label>
                 Endereço:
@@ -50,7 +49,7 @@
             <label>
                 Ativo?
             </label>
-            <input id="ativo" name="ativo" type='checkbox' >
+            <input id="ativo" name="ativo" type='checkbox' @if($client->active_flag) checked='checked' @endif>
             <br> <br>
 
             <input type="submit" class="btn btn-success btn" value="Enviar"> 
